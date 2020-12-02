@@ -4,7 +4,7 @@ public class Queue {
     // ref. último item
     private Node last;
 
-    // item (nó)
+    // item (nó) - classe interna (nested class)
     // POJO - Plain old java object
     private class Node {
         private int data;
@@ -57,8 +57,9 @@ public class Queue {
             last = aux;
         }
     }
+
     // desenfileirar
-    public int dequeue() {
+    public int dequeue() throws IndexOutOfBoundsException {
         Node aux; // etiqueta auxiliar
         int data; // valor retornado ao usuário
 
@@ -78,14 +79,5 @@ public class Queue {
         }
 
         return data;
-    }
-
-    // obter o primeiro
-    public int getFirst() {
-        return first.data;
-    }
-    // obter o último
-    public int getLast() {
-        return last.data;
     }
 }
