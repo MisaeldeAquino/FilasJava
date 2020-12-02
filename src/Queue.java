@@ -1,33 +1,35 @@
-public class Queue {
+
+// Queue vai ser parametrizada com um tipo T
+public class Queue<T> {
     // ref. primeiro item
-    private Node first;
+    private Node<T> first;
     // ref. último item
-    private Node last;
+    private Node<T> last;
 
     // item (nó) - classe interna (nested class)
     // POJO - Plain old java object
-    private class Node {
-        private int data;
-        private Node next;
+    private class Node<T> {
+        private T data;
+        private Node<T> next;
 
-        public Node(int data) {
+        public Node(T data) {
             this.data = data;
             this.next = null;
         }
 
-        public int getData() {
+        public T getData() {
             return data;
         }
 
-        public void setData(int data) {
+        public void setData(T data) {
             this.data = data;
         }
 
-        public Node getNext() {
+        public Node<T> getNext() {
             return next;
         }
 
-        public void setNext(Node next) {
+        public void setNext(Node<T> next) {
             this.next = next;
         }
     }
@@ -44,9 +46,9 @@ public class Queue {
     }
 
     // enfileirar
-    public void enqueue(int data) {
+    public void enqueue(T data) {
         // criar a casinha
-        Node aux = new Node(data);
+        Node<T> aux = new Node<>(data);
 
         // se a fila estiver vazia
         if (isEmpty()) {
@@ -59,9 +61,9 @@ public class Queue {
     }
 
     // desenfileirar
-    public int dequeue() throws IndexOutOfBoundsException {
-        Node aux; // etiqueta auxiliar
-        int data; // valor retornado ao usuário
+    public T dequeue() throws IndexOutOfBoundsException {
+        Node<T> aux; // etiqueta auxiliar
+        T data; // valor retornado ao usuário
 
         if (isEmpty()) { // não pode desenfileirar! erro!
             throw new IndexOutOfBoundsException("Fila vazia! Impossível desenfileirar!");

@@ -1,11 +1,10 @@
 public class QueueTest {
     public static void main(String[] args) {
-        Queue q = new Queue();
+        Queue<Aluno> q = new Queue<>();
 
-        q.enqueue(2);
-        q.enqueue(5);
-        q.enqueue(6);
-
+        q.enqueue(new Aluno(1, "João", 20));
+        q.enqueue(new Aluno(2, "José", 20));
+        q.enqueue(new Aluno(3, "Julio", 20));
         try { // tente
             System.out.println(q.dequeue());
             System.out.println(q.dequeue());
