@@ -1,6 +1,19 @@
+import java.util.Scanner;
+
 public class QueueTest {
     public static void main(String[] args) {
-        Queue<Aluno> q = new Queue<>();
+        Queue<Aluno> q;
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Insira 1 para ObjectQueue e 2 para ArrayQueue: ");
+        int op = input.nextInt();
+
+        if (op == 1)
+            q = new ObjectQueue<>();
+        else if (op == 2)
+            q = new ArrayQueue<>();
+        else
+            throw new RuntimeException("Escolha 1 ou 2");
 
         q.enqueue(new Aluno(1, "João", 20));
         q.enqueue(new Aluno(2, "José", 20));
